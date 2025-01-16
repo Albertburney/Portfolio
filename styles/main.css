@@ -1,0 +1,201 @@
+/* General Styling */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0B192C;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 23px;
+    font-weight: bold;
+    color: #fff;
+    margin-right: 20px;
+    white-space: nowrap;
+    letter-spacing: 5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 50px; /* Increase gap to space links further apart */
+    margin: 0;
+    padding: 0;
+}
+
+/* Styling for Links */
+.nav-links a {
+    color: #e0dbdb;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative; /* Required for the underline effect */
+    transition: color 0.3s ease, transform 0.2s ease-in-out; /* Added transition for scaling */
+}
+
+/* Hover effect: shadow and underline */
+.nav-links a:hover {
+    color: #ffffff;
+    transform: scale(1.1) rotate(5deg); /* Slight scale and rotation */
+}
+
+/* Adding the underline and shadow when hovered */
+.nav-links a:hover::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #61dafb; /* Underline color */
+    box-shadow: 0 0 15px rgba(97, 218, 251, 0.6); /* Shadow under the link */
+}
+  
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 15px; /* Reduced gap in mobile view */
+    }
+}
+
+/* Main Content Styling */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Ensure the content takes full screen height */
+    background-color: #0B192C;
+    color: #fff;
+    position: relative;
+}
+
+.content-wrapper {
+    text-align: center;
+    margin: 20px;
+    position: relative;
+}
+
+img {
+    width: 50%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.name {
+    font-size: 28px;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.intro {
+    color: #bbb;
+    font-size: 18px;
+    margin: 20px;
+}
+
+/* Hidden text before animation */
+.hidden-text {
+    display: none;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 20px;
+    animation: textAppear 1s ease-in-out forwards;
+}
+
+/* Keyframes for text appearance */
+@keyframes textAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Door animation effect for the image */
+@keyframes doorOpen {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scaleX(0); /* Collapse horizontally */
+        opacity: 0;
+    }
+    100% {
+        transform: scaleX(1); /* Reset to normal size */
+        opacity: 1;
+    }
+}
+
+/* Apply the door animation to the image */
+.open-door {
+    animation: doorOpen 1s forwards;
+}
+
+/* Footer Styling */
+footer {
+    background-color: hsla(218, 17%, 56%, 0.8);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+footer a {
+    color: #61dafb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.footer-text p {
+    margin: 5px 0;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    img {
+        width: 70%;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 15px 10px;
+    }
+}

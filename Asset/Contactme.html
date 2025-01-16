@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tushar Portfolio</title>
+    <link rel="stylesheet" href="pages.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1 class="bar">Hello World</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Projects.html">Projects</a></li>
+                <li><a href="AboutMe.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-us">
+            <form>
+                <fieldset>
+                    <legend>Contact Me</legend>
+                    <label for="email">Email
+                        <input required id="email" type="email" placeholder="Enter your email">
+                    </label>
+                    <label for="message">Write whatever you want me to know:
+                        <textarea required id="message" placeholder="Your message"></textarea>
+                    </label>
+                    <label for="coffee-status">Coffee Status:</label>
+                    <div id="coffee-status">
+                        <label><input required type="radio" name="coffee" value="had-coffee"> Had Coffee</label>
+                        <label><input required type="radio" name="coffee" value="full-caffeine"> Full with Caffeine</label>
+                    </div>
+                    <button type="submit">Submit</button>
+                </fieldset>
+            </form>
+
+            <p>If you don't want to fill this form 🧾:<br>Follow these links:</p>
+            <ul>
+                <li><a href="#">GitHub</a>: Check out my projects</li>
+                <li><a href="#">Instagram</a>: DM me if you want!</li>
+                <li><a href="#">Discord</a>: Join my server or DM me!</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tushar Portfolio. All rights reserved.</p>
+    </footer>
+</body>
+</html>
