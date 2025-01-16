@@ -134,3 +134,83 @@ const centerY = window.innerHeight / 4; // Move higher vertically
 
   animate();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const heartIcon = document.getElementById("heart-icon");
+  const notification = document.getElementById("notification");
+  const canvas = document.getElementById("fireworks-canvas");
+  const ctx = canvas.getContext("2d");
+
+  // Resize the canvas to the window size
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  let particles = [];
+  const colors = ["255,20,97", "24,255,146", "90,135,255", "251,243,140"];
+
+  // Firework Particle Class
+  class Particle {
+      constructor(x, y, color) {
+          this.x = x;
+          this.y = y;
+          this.color = color;
+          this.radius = Math.random() * 4 + 1;
+          this.xVelocity = Math.random() * 4 - 2;
+          this.yVelocity = Math.random() * 4 - 2;
+          this.opacity = 1;
+          this.fade = Math.random() * 0.03 + 0.01;
+      }
+
+      draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
+          ctx.fillStyle = `rgba(${this.color}, ${this.opacity})`;
+          ctx.fill();
+      }
+
+      update() {
+          this.x += this.xVelocity;
+          this.y += this.yVelocity;
+          this.opacity -= this.fade;
+      }
+  }
+
+  // Create Fireworks
+  function createFireworks(x, y) {
+      const color = colors[Math.floor(Math.random() * colors.length)];
+      for (let i = 0; i < 30; i++) {
+          particles.push(new Particle(x, y, color));
+      }
+  }
+
+  // Animate Fireworks
+  function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      particles = particles.filter((particle) => particle.opacity > 0);
+
+      particles.forEach((particle) => {
+          particle.update();
+          particle.draw();
+      });
+
+      requestAnimationFrame(animate);
+  }
+
+  // Show notification and trigger fireworks on heart click
+  heartIcon.addEventListener("click", (event) => {
+      // Show notification
+      notification.classList.add("show");
+
+      // Trigger fireworks at heart position
+      const rect = heartIcon.getBoundingClientRect();
+      createFireworks(rect.left + rect.width / 2, rect.top);
+
+      // Hide the notification after 5 seconds
+      setTimeout(() => {
+          notification.classList.remove("show");
+      }, 5000);
+  });
+
+  animate();
+});
