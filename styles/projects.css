@@ -1,47 +1,52 @@
+html, body {
+    overflow: visible;
+}
+
+
 /* Main Section */
 main {
     padding: 40px 20px;
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+    position: relative; /* Ensure stacking context for blur */
+    z-index: 1; /* Base z-index for main content */
 }
 
 h1.gallery {
-    font-size: 24px;
-    color: #222;
+    font-size: 48px; /* Increase the font size for a bold statement */
+    color: #ffffff; /* Keep the white color for a clean look */
     margin-bottom: 40px;
+    font-family: 'Poppins', sans-serif; /* Use a modern sans-serif font */
+    font-weight: 700; /* Make the text bold */
+    text-transform: uppercase; /* Make the text uppercase for emphasis */
+    letter-spacing: 2px; /* Add letter spacing for a sleek look */
+    text-align: center; /* Center-align the heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add a subtle shadow for depth */
+    animation: fadeIn 1s ease-in-out; /* Add a fade-in animation */
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Projects Section */
 .projects {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 30px; /* Space between the boxes */
     margin-top: 40px;
-}
-
-.projects-header {
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    position: relative;
-    display: inline-block;
-    margin-bottom: 50px;
-    padding: 10px 20px;
-    background: linear-gradient(45deg, #ff7a18, #af002d, #2a2a72);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: sparkle 1.5s infinite alternate;
-}
-
-@keyframes sparkle {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
+    justify-content: center; /* Center align the grid in case of fewer items */
+    max-width: 1200px; /* Optional: constrain the overall width */
+    margin: 0 auto; /* Center the grid horizontally */
 }
 
 /* Project Boxes */
@@ -53,6 +58,8 @@ h1.gallery {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     position: relative;
+    opacity: 0; /* Initially hidden for fade-in effect */
+    z-index: 2; /* Ensure above main background */
 }
 
 .project:hover {
@@ -84,39 +91,71 @@ h1.gallery {
     margin-top: 10px;
 }
 
-/* Project Details */
-.project-details {
-    display: none;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    text-align: left;
+/* Expanded Project Details */
+.project.expanded {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100; /* Ensure it sits above other elements */
+    background: white;
+    width: 90%; /* Responsive sizing */
+    max-width: 600px; /* Limit the maximum width */
+    max-height: 80%; /* Ensure it fits within the viewport height */
+    overflow-y: auto; /* Enable scrolling for content overflow */
+    padding: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); /* Add shadow for a lifted effect */
+    border-radius: 8px; /* Optional: rounded corners */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Optional: smooth transition */
+    opacity: 1; /* Ensure it is fully visible when expanded */
 }
 
-.project-details a {
-    display: block;
-    margin-top: 10px;
-    color: #007bff;
-    text-decoration: none;
-}
-
-.project-details a:hover {
-    text-decoration: underline;
-}
-
-/* Expand Project */
 .project.expanded .project-details {
     display: block;
 }
 
-.project.expanded {
-    transform: scale(1.05);
+.project.expanded img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .projects {
-        grid-template-columns: 1fr;
-    }
+.project.expanded h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.project.expanded p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Overlay for Blur Effect */
+.project-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 50; /* Ensure it is below the expanded project box */
+}
+
+.project-overlay.active {
+    display: block;
+}
+
+/* Blur Background */
+.blur-background {
+    filter: blur(5px);
+    transition: filter 0.3s ease;
+    z-index: 1; /* Ensure it's part of the stacking context */
+    position: relative;
+}
+
+.ed{
+    text-align: center;
+    color: #ffffff;
 }

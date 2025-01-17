@@ -20,22 +20,46 @@ document.addEventListener("DOMContentLoaded", () => {
     typeWriter();  // Start the typing effect
 });
 
-
-
-  // JavaScript for fade-in animation on page load
 document.addEventListener("DOMContentLoaded", function () {
     const projects = document.querySelectorAll('.project');
 
+    // Add fade-in animation
     projects.forEach((project, index) => {
         setTimeout(() => {
             project.style.opacity = 1;
             project.style.transition = "opacity 0.6s ease-in";
-        }, index * 200);  // Delay each project fade-in
+        }, index * 200); // Delay each project fade-in
     });
 });
 
 function toggleProjectDetails(projectId) {
     const project = document.querySelector(`.project:nth-child(${projectId})`);
-    project.classList.toggle('expanded');
+    const main = document.querySelector('main');
+    const overlay = document.querySelector('.project-overlay') || document.createElement('div');
+
+    if (!overlay.parentNode) {
+        overlay.className = 'project-overlay';
+        document.body.appendChild(overlay);
+    }
+
+    if (project) {
+        if (!project.classList.contains('expanded')) {
+            // Move project to body for correct stacking
+            const clone = project.cloneNode(true);
+            clone.classList.add('expanded');
+            document.body.appendChild(clone);
+
+            overlay.classList.add('active');
+            main.classList.add('blur-background');
+
+            overlay.addEventListener('click', () => {
+                document.body.removeChild(clone);
+                overlay.classList.remove('active');
+                main.classList.remove('blur-background');
+            });
+        }
+    }
 }
+
+
 
