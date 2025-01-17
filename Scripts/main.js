@@ -18,7 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   
     typeWriter();  // Start the typing effect
-  });
+});
+
+
 
   // JavaScript for fade-in animation on page load
 document.addEventListener("DOMContentLoaded", function () {
@@ -31,3 +33,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }, index * 200);  // Delay each project fade-in
     });
 });
+
+function toggleProjectDetails(projectId) {
+    const project = document.querySelector(`.project:nth-child(${projectId})`);
+    project.classList.toggle('expanded');
+}
+
