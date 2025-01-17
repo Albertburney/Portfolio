@@ -1,0 +1,125 @@
+
+
+.contact-us {
+    background-color: rgba(255, 255, 255, 0.9);  /* Semi-transparent background */
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: 16px;
+    color: #333;
+    backdrop-filter: blur(10px); /* Adds a nice blur effect */
+}
+
+.contact-us legend {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    font-size: 14px;
+}
+
+input[type="email"],
+textarea {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 5px;
+    color: #333;
+    background-color: #fafafa;
+    transition: border 0.3s ease;
+}
+
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff6f61;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#coffee-status {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+}
+
+#coffee-status label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+button {
+    background-color: #ff6f61;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #e55b53;
+}
+
+p {
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+ul li {
+    font-size: 14px;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #ff6f61;
+    transition: color 0.3s ease;
+}
+
+ul li a:hover {
+    color: #e55b53;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-us {
+        padding: 30px;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    p,
+    ul li {
+        font-size: 16px;
+    }
+}

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="../styles/pages.css">
     <title>Tushar.Potfolio</title>
 </head>
 <body>
@@ -12,7 +12,7 @@
         <nav class="navbar">
             <div class="logo" id="logo-text"></div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="Projects.html">Projects</a></li>
                 <li><a href="Contactme.html">Contact Me</a></li>
             </ul>
@@ -20,23 +20,23 @@
     </header>
     
     <div class="aboutme">
-    <h1 type="title">About Me</h1>
-    <h2 class="question">
-        HI So you want to know about me huh? Well</h2>
-        <hr>
-        <p class="pragraph">
-            "Hello! I’m the kind of person who believes life’s too short for boring designs, bland code,or taking yourself too seriously.
-            A creative soul at heart, I’ve mastered the art of juggling big ideas and the small details that make them shine. 
-            From designing visuals that wow to crafting clever JavaScript for a web-based chess game, 
-            I thrive on tackling challenges with creativity and flair. <BR> 
-            I’ve embraced every opportunity to grow and stand out—whether it’s working on projects, 
-            applying for leadership roles, or dreaming up the next big thing. My work is fueled by caffeine, 
-            a touch of chaos, and an unshakable belief that there’s always a clever way to solve a problem. <BR>
-            When I’m not designing, coding, or brainstorming, you’ll find me laughing at my own jokes, obsessing over the perfect font, 
-            or convincing myself that "one more hour" of work is always a good idea. If you’re looking for someone who can combine creativity,
-             humor, and a serious dose of determination, well, you’ve found your person!"
-        </p>
-    </div>
+        <div class="container">
+            <h1>About Me</h1>
+            <h2 class="question">Hi! So you want to know about me, huh? Well...</h2>
+            <hr>
+            <p class="pragraph">
+                Hello! I’m the kind of person who believes life’s too short for boring designs, bland code, or taking yourself too seriously.
+                A creative soul at heart, I’ve mastered the art of juggling big ideas and the small details that make them shine.
+                From designing visuals that wow to crafting clever JavaScript for a web-based chess game,
+                I thrive on tackling challenges with creativity and flair.<br><br>
+                I’ve embraced every opportunity to grow and stand out—whether it’s working on projects,
+                applying for leadership roles, or dreaming up the next big thing. My work is fueled by caffeine,
+                a touch of chaos, and an unshakable belief that there’s always a clever way to solve a problem.<br><br>
+                When I’m not designing, coding, or brainstorming, you’ll find me laughing at my own jokes, obsessing over the perfect font,
+                or convincing myself that "one more hour" of work is always a good idea. If you’re looking for someone who can combine creativity,
+                humor, and a serious dose of determination, well, you’ve found your person!
+            </p>
+        </div>
         <div class="timeline">
             <h2>Timeline</h2>
             <ul>
@@ -62,15 +62,27 @@
         </div>
 
         <div class="where-i-am">
-            <h2>Where I am</h2>
-            <p>Currently I am working as a web developer at a company called XYZ</p>
+            <h2>Where I Am</h2>
+            <p>Currently, I am working as a web developer at a company called XYZ, located in [City, Country].</p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.42167438468275!3d37.77492917975927!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085818c24c4b4e1%3A0xe8b7fbf576202dd!2sXYZ%20Company!5e0!3m2!1sen!2sus!4v1691531532767!5m2!1sen!2sus"
+                    width="600"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
         </div>
+        
 </body>
     <!-- Footer Section -->
     <footer class="footer-text">
         <p>
             Made with<span id="heart-icon" class="heart-icon">❤️</span>and caffeine. <a href="mailto:geekysamz@gmail.com">Get in touch</a></p>
     </footer>
-    <script src="main.js"></script>
+    <script src="../Scripts/main.js"></script>
 
 </html>

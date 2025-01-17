@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tushar Portfolio</title>
-    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="../styles/pages.css">
+    <link rel="stylesheet" href="../styles/contactus.css">
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="logo" id="logo-text"></div>
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="Aboutme.html">About Me</a></li>
                 <li><a href="Projects.html">Projects</a></li>
             </ul>
@@ -20,7 +21,7 @@
 
     <main>
         <section class="contact-us">
-            <form>
+            <form id="contact-form">
                 <fieldset>
                     <legend>Contact Me</legend>
                     <label for="email">Email
@@ -37,7 +38,7 @@
                     <button type="submit">Submit</button>
                 </fieldset>
             </form>
-
+    
             <p>If you don't want to fill this form 🧾:<br>Follow these links:</p>
             <ul>
                 <li><a href="#">GitHub</a>: Check out my projects</li>
@@ -46,12 +47,47 @@
             </ul>
         </section>
     </main>
-
+    
+    <script>
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        // Get form data
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+        const coffeeStatus = document.querySelector('input[name="coffee"]:checked').value;
+    
+        // Prepare data to send
+        const formData = {
+            email: email,
+            message: message,
+            coffeeStatus: coffeeStatus,
+        };
+    
+        // Send data to the API
+        fetch("http://localhost:3000/contact", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert("Your message has been sent!");
+            document.getElementById("contact-form").reset();  // Reset form
+        })
+        .catch(error => {
+            alert("Error sending message: " + error);
+        });
+    });
+    </script>
+    
     <!-- Footer Section -->
     <footer class="footer-text">
         <p>
             Made with<span id="heart-icon" class="heart-icon">❤️</span>and caffeine. <a href="mailto:geekysamz@gmail.com">Get in touch</a></p>
     </footer>
-    <script src="main.js"></script>
+    <script src="../Scripts/main.js"></script>
 </body>
 </html>

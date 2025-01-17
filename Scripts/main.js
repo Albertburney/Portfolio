@@ -19,3 +19,15 @@ document.addEventListener("DOMContentLoaded", () => {
   
     typeWriter();  // Start the typing effect
   });
+
+  // JavaScript for fade-in animation on page load
+document.addEventListener("DOMContentLoaded", function () {
+    const projects = document.querySelectorAll('.project');
+
+    projects.forEach((project, index) => {
+        setTimeout(() => {
+            project.style.opacity = 1;
+            project.style.transition = "opacity 0.6s ease-in";
+        }, index * 200);  // Delay each project fade-in
+    });
+});
