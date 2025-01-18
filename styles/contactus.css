@@ -1,17 +1,18 @@
-
-
+/* Contact Form Styling */
 .contact-us {
-    background-color: rgba(255, 255, 255, 0.9);  /* Semi-transparent background */
+    background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
     border-radius: 10px;
     padding: 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    margin: 0 auto;
+    margin: 50px auto; /* Center the form */
     font-size: 16px;
     color: #333;
-    backdrop-filter: blur(10px); /* Adds a nice blur effect */
+    backdrop-filter: blur(15px); /* Adds a nice blur effect */
+    text-align: center; /* Center-align text inside */
 }
 
+/* Legend Styling */
 .contact-us legend {
     font-size: 24px;
     font-weight: bold;
@@ -19,19 +20,25 @@
     color: #333;
 }
 
+/* Form Layout */
 form {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: stretch; /* Stretch form elements to full width */
 }
 
+/* Label Styling */
 label {
     display: flex;
     flex-direction: column;
     text-align: left;
     font-size: 14px;
+    width: 100%; /* Ensure labels take full width */
+    margin-bottom: 10px;
 }
 
+/* Input and Textarea Styling */
 input[type="email"],
 textarea {
     border: 1px solid #ddd;
@@ -43,6 +50,7 @@ textarea {
     color: #333;
     background-color: #fafafa;
     transition: border 0.3s ease;
+    box-sizing: border-box; /* Fix layout issues */
 }
 
 input[type="email"]:focus,
@@ -51,14 +59,19 @@ textarea:focus {
     border-color: #ff6f61;
 }
 
+/* Textarea Styling */
 textarea {
     min-height: 150px;
-    resize: vertical;
+    max-height: 150px; /* Fixed height */
+    resize: none; /* Prevent resizing */
+    overflow-y: auto; /* Enable scrolling for overflow */
 }
 
+/* Coffee Status */
 #coffee-status {
     display: flex;
     gap: 20px;
+    justify-content: center; /* Center align radio options */
     font-size: 14px;
 }
 
@@ -68,6 +81,7 @@ textarea {
     gap: 5px;
 }
 
+/* Button Styling */
 button {
     background-color: #ff6f61;
     color: white;
@@ -78,48 +92,73 @@ button {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin-top: 20px;
+    align-self: center; /* Center-align the button */
 }
 
 button:hover {
     background-color: #e55b53;
 }
 
+/* Paragraph Styling */
 p {
-    margin-top: 30px;
-    font-size: 14px;
+    font-size: 1rem;
+    color: #555;
+    margin: 20px;
 }
 
+/* List Styling */
 ul {
-    list-style-type: none;
-    margin-top: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 20px;
 }
 
+/* List Items */
 ul li {
-    font-size: 14px;
+    margin: 10px 0;
 }
 
-ul li a {
+/* Link Styling */
+a {
     text-decoration: none;
-    color: #ff6f61;
-    transition: color 0.3s ease;
+    color: #007BFF;
+    font-weight: 500;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
-ul li a:hover {
-    color: #e55b53;
+a:hover {
+    color: #0056b3;
+    text-shadow: 0px 0px 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Emoji Styling */
+p 🧾 {
+    font-size: 1.1rem;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .contact-us {
-        padding: 30px;
+        padding: 20px;
+    }
+
+    textarea {
+        font-size: 14px;
     }
 
     button {
-        width: 100%;
+        font-size: 14px;
+        padding: 10px 16px;
     }
 
     p,
     ul li {
         font-size: 16px;
+    }
+
+    #coffee-status {
+        flex-direction: column; /* Stack radio options vertically on small screens */
+        align-items: flex-start;
+        gap: 10px;
     }
 }

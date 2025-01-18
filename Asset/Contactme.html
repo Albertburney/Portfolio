@@ -21,67 +21,49 @@
 
     <main>
         <section class="contact-us">
-            <form id="contact-form">
+            <form id="contact-form" class="contact-us">
                 <fieldset>
                     <legend>Contact Me</legend>
                     <label for="email">Email
-                        <input required id="email" type="email" placeholder="Enter your email">
+                        <input required id="email" type="email" name="email" placeholder="Enter your email">
                     </label>
                     <label for="message">Write whatever you want me to know:
-                        <textarea required id="message" placeholder="Your message"></textarea>
+                        <textarea required name="message" id="message" placeholder="Your message" maxlength="150"></textarea>
                     </label>
                     <label for="coffee-status">Coffee Status:</label>
                     <div id="coffee-status">
                         <label><input required type="radio" name="coffee" value="had-coffee"> Had Coffee</label>
                         <label><input required type="radio" name="coffee" value="full-caffeine"> Full with Caffeine</label>
                     </div>
-                    <button type="submit">Submit</button>
+                    <button type="submit">Submit Form</button>
                 </fieldset>
             </form>
     
-            <p>If you don't want to fill this form 🧾:<br>Follow these links:</p>
-            <ul>
-                <li><a href="#">GitHub</a>: Check out my projects</li>
-                <li><a href="#">Instagram</a>: DM me if you want!</li>
-                <li><a href="#">Discord</a>: Join my server or DM me!</li>
-            </ul>
+<!-- Include Font Awesome CDN in the head of your HTML -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+<p>If you don't want to fill this form 🧾:<br>Follow these links:</p>
+<ul>
+    <li>
+        <a href="#">
+            <i class="fab fa-github"></i> Check out my projects
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fab fa-instagram"></i> DM me if you want!
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="fab fa-discord"></i> Join my server or DM me!
+        </a>
+    </li>
+</ul>
+
+
         </section>
     </main>
-    
-    <script>
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-    
-        // Get form data
-        const email = document.getElementById("email").value;
-        const message = document.getElementById("message").value;
-        const coffeeStatus = document.querySelector('input[name="coffee"]:checked').value;
-    
-        // Prepare data to send
-        const formData = {
-            email: email,
-            message: message,
-            coffeeStatus: coffeeStatus,
-        };
-    
-        // Send data to the API
-        fetch("http://localhost:3000/contact", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(formData),
-        })
-        .then(response => response.json())
-        .then(data => {
-            alert("Your message has been sent!");
-            document.getElementById("contact-form").reset();  // Reset form
-        })
-        .catch(error => {
-            alert("Error sending message: " + error);
-        });
-    });
-    </script>
     
     <!-- Footer Section -->
     <footer class="footer-text">
