@@ -2,7 +2,7 @@
 
 # Portfolio Website
 
-This is a personal portfolio website showcasing projects, skills, and achievements. The website is designed to provide a clean and professional representation of work for potential employers, collaborators, or clients.
+Hi Albert here, I like to keep thing simpel there is 
 
 ---
 
@@ -19,7 +19,7 @@ This is a personal portfolio website showcasing projects, skills, and achievemen
 ## Technologies Used
 
 - **Frontend**: HTML, CSS, JavaScript
-- **Styling**: Tailwind CSS / Bootstrap / Custom CSS
+- **Styling**: Tailwind CSS / Bootstrap 
 - **Deployment**: GitHub Pages
 
 ---
@@ -41,7 +41,7 @@ Ensure you have the following installed on your system:
 
 2. Navigate to the project directory:
    ```bash
-   cd portfolio-website
+   cd App
    ```
 ---
 
@@ -78,7 +78,7 @@ For inquiries, suggestions, or collaborations, feel free to contact:
 
 - **Email**: geekysamz@gmail.com
 - **Discord**: West_05x
-- **GitHub**: [your-github-username](https://github.com/SergentGhost)
+- **GitHub**: Tushar Albert Burney
 
 ---
 
