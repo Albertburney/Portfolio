@@ -3,12 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/main.css">
-
-    <link rel="stylesheet" href="styles/add.css">
     <title>Tushar Portfolio</title>
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/addon.css">
+
+    <!-- Clock Card Styling -->
+    <style>
+        .card {
+            width: 280px;
+            height: 150px;
+            background: linear-gradient(to right, rgb(27, 31, 37), rgb(77, 78, 79));
+            border-radius: 15px;
+            box-shadow: rgba(0, 0, 0, 0.7) 5px 10px 50px, rgba(0, 0, 0, 0.7) -5px 0px 250px;
+            display: flex;
+            color: white;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+
+            /* Fixed to bottom-right corner */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+        }
+
+        .card:hover {
+            box-shadow: rgba(0, 0, 0, 0.9) 5px 10px 50px, rgba(0, 0, 0, 0.9) -5px 0px 250px;
+        }
+
+        .time-text {
+            font-size: 50px;
+            margin: 0;
+            font-weight: 600;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+
+        .time-sub-text {
+            font-size: 15px;
+            margin-left: 5px;
+        }
+
+        .day-text {
+            font-size: 18px;
+            margin: 5px 0 0;
+            font-weight: 500;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+    </style>
 </head>
+
 <body>
+
+    <!-- Main Container -->
+    <div class="container"></div>
+
     <!-- Header Section -->
     <header>
         <nav class="navbar">
@@ -21,45 +75,75 @@
         </nav>
     </header>
 
+    <!-- Live Clock Card -->
+    <div class="card">
+        <p class="time-text">
+            <span id="hours">00</span>:<span id="minutes">00</span>
+            <span class="time-sub-text" id="ampm">AM</span>
+        </p>
+        <p class="day-text" id="date">Loading...</p>
+    </div>
+
     <!-- Main Content Section -->
     <main>
-       <!-- Canvas for Network Connections -->
-    <canvas id="networkCanvas"></canvas>
-        <!-- Terminal Box -->
-        <div class="content-wrapper">
-            <h1 class="name"></h1>
-            <p class="intro"></p>
-        </div>
+    
     </main>
 
-    <!--<div class="audio-player">
-        <div class="album-cover"></div>
-        <div class="player-controls">
-          <div class="song-info">
-            <div class="song-title">Song Title</div>
-            <p class="artist">Artist</p>
-          </div>
-          <div class="progress-bar">
-            <div class="progress"></div>
-          </div>
-          <div class="buttons">
-            <button class="play-btn"><svg viewBox="0 0 16 16" class="bi bi-play-fill" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style="color: white"> <path fill="white" d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"></path> </svg></button>
-            <button class="pause-btn"><svg viewBox="0 0 16 16" class="bi bi-pause-fill" fill="currentColor" height="16" width="16" xmlns="http://www.w3.org/2000/svg" style="color: white"> <path fill="white" d="M5.5 3.5A1.5 1.5 0 0 1 7 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5zm5 0A1.5 1.5 0 0 1 12 5v6a1.5 1.5 0 0 1-3 0V5a1.5 1.5 0 0 1 1.5-1.5z"></path> </svg></button>
-          </div>
-        </div>
-      </div>-->
-      
     
     <!-- Footer Section -->
     <footer class="footer-text">
         <p>
-            Made with<span id="heart-icon" class="heart-icon">❤️</span>and caffeine. <a href="mailto:geekysamz@gmail.com">Get in touch</a></p>
+            Made with <span id="heart-icon" class="heart-icon">❤️</span> and caffeine. 
+            <a href="mailto:geekysamz@gmail.com">Get in touch</a>
+        </p>
     </footer>
+
+    <!-- Easter Egg Notification -->
     <div id="notification" class="notification">
-        You found the Easter egg! Here is the source code."https://github.com/SergentGhost/Source-code.git"<br>
-         DM me on IG for access. albert __burney
+        You found the Easter egg! Here is the source code:
+        <a href="https://github.com/SergentGhost/Source-code.git" target="_blank">GitHub Repo</a>
+        <br> DM me on IG for access: albert __burney
     </div>
+
+    <!-- Fireworks Effect Canvas -->
     <canvas id="fireworks-canvas"></canvas>
+
+    <!-- JavaScript Files -->
     <script src="Scripts/scripts.js"></script>
+    <script src="Scripts/addon.js"></script>
+
+    <!-- JavaScript for Live Clock -->
+    <script>
+        function updateClock() {
+            const now = new Date();
+
+            // Get time components
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+
+            // Convert to 12-hour format
+            hours = hours % 12 || 12;
+
+            // Format time with leading zeros
+            hours = String(hours).padStart(2, '0');
+            minutes = String(minutes).padStart(2, '0');
+
+            // Get date in readable format
+            const options = { weekday: 'long', month: 'long', day: 'numeric' };
+            const dateString = now.toLocaleDateString(undefined, options);
+
+            // Update the DOM
+            document.getElementById('hours').textContent = hours;
+            document.getElementById('minutes').textContent = minutes;
+            document.getElementById('ampm').textContent = ampm;
+            document.getElementById('date').textContent = dateString;
+        }
+
+        // Update clock immediately and then every second
+        updateClock();
+        setInterval(updateClock, 1000);
+    </script>
+
 </body>
 </html>
